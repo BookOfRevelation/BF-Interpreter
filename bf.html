@@ -1,0 +1,133 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
+<html><head>
+ 
+      <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+
+      <link href="style.css" rel="stylesheet" type="text/css">
+   
+      <title>Interpréteur de BF</title>
+    </head>
+    <body>
+	<h1>Interpréteur de BrainFuck</h1>
+
+
+
+
+
+
+
+	<div>
+		<h3>Entrez votre code Brain Fuck dans la zone de texte et faites le interpréter ensuite pour admirer le résultat.</h3>
+	</div>
+		<br>
+	<div>
+		
+		<table><tbody><tr><td></td><td><textarea style="width: 480px; height: 160px;" id="code" rows="10" cols="50">++++++++++[&gt;+++++++&gt;++++++++++&gt;+++&gt;+&lt;&lt;&lt;&lt;-]&gt;++.&gt;+.+++++++..+++.&gt;++.&lt;&lt;+++++++++++++++.&gt;.+++.------.--------.&gt;+.&gt;.</textarea><br>
+		</td></tr><tr><td>Arguments : </td><td><input id="args"><br>
+		</td></tr><tr><td><button onclick="interpret()">Interpréter</button></td></tr></tbody></table>	
+		
+	</div>
+	<br>
+	<div>OUTPUT : </div>
+	<div id="output">Hello World!
+</div>
+
+	<script type="text/javascript">
+	function interpret(){
+	//////////////INITIALISATION//////////////////////
+		var print = "";
+		document.getElementById('output').innerHTML="";
+		
+		var args = document.getElementById('args').value + String.fromCharCode(0);
+		var p_args = 0;
+		
+		var ram = new Array();
+		var p_ram = 0;
+		for(i=0; i<30000;++i)
+		{
+			ram[i] = 0 ;
+		}
+
+		//window.alert(ram);
+
+		var stack = new Array();
+		var p_stack = 0;
+		for(i=0;i<100;++i)
+		{
+			stack[i] = 0;
+		}
+
+		var instr = new Array();
+		var p_instr = 0;
+
+		var code = document.getElementById('code').value;
+		var j =  0;
+		for(i=0;i<code.length;++i)
+		{
+			
+			if(code.charAt(i) == '+' || code.charAt(i) == '-' || code.charAt(i) == '<'|| code.charAt(i) == '>'|| code.charAt(i) == '.'|| code.charAt(i) == ','|| code.charAt(i) == '['|| code.charAt(i) == ']')
+			{
+				instr[j] = code.charAt(i);
+				j = j+1;
+			}
+		}
+		
+
+	///////////////////CODE/////////////////////////////////
+		
+		while(p_instr<instr.length)
+		{
+			
+			switch(instr[p_instr])
+			{
+				case '+' : ram[p_ram]++;  break;
+				case '-' : ram[p_ram]--; break;
+				case '>' : p_ram++; break;
+				case '<' : p_ram--; break;
+				case '.' : 				
+				print = print + String.fromCharCode(ram[p_ram]); 
+				document.getElementById('output').innerHTML+= String.fromCharCode(ram[p_ram]);break;
+				case ',' : ram[p_ram] = args.charCodeAt(p_args); p_args++; break;
+				case '[' : stack[p_stack] = p_instr+1; p_stack++; break;
+				case ']' : if(ram[p_ram]==0)
+						{p_stack--;}
+					else
+						{p_instr = stack[p_stack-1]-1; } 
+					break;
+			}
+			if(ram[p_ram] < 0)
+			{
+				ram[p_ram] = 0 ; 
+			}
+			p_instr++;
+			
+		}
+
+
+
+
+		
+		
+	}
+
+
+	
+
+
+
+
+	</script>
+
+
+
+
+   
+
+
+
+
+
+
+
+
+</body></html>

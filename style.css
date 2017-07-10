@@ -1,0 +1,89 @@
+	html {
+	    /* Suppression des marges et remplissages :
+	       Ecrasement des styles par défaut des divers navigateurs */
+	    margin           : 0 ;
+	    padding          : 0 ;
+	    color            : black ;
+	    background-color : transparent ;
+	}
+	
+	em { color : red;
+	     text-decoration : underline; }
+
+	body { padding : 10px;
+	       background-color : #778899; }
+
+	h3 {background-color : #880000}
+
+	h4 {font-style: italic;
+		color :#778899 }
+
+	h4:hover { color : black;}
+	h1 { text-align : center;
+		color : #778899;
+
+		border-style:solid;
+		border-color:black;
+		border-width:2px;
+		background-color : #000099;
+ 	}
+
+	h2 {
+		color : white;
+		border-style:solid;
+		border-color:black;
+		border-width:2px;
+		font-size:x-large;
+		 background-color : #0f1c70;   
+		/* background: -moz-linear-gradient(-45deg, blue,darkblue); si le navigateur n'est pas mozzila*/
+		padding:2px;		
+		padding-left:15px;
+		padding-left:10%;
+		background-image : url("Images/degrade.png");
+		background-repeat : repeat-y;
+		clear : left;
+		padding-bottom : 15px;
+		vertical-align : middle;
+		}
+
+
+	div.logo img { float : right; }
+	p { clear : right; }
+	ul { padding-bottom : 2px;}
+	li.sous-ensemble { font-weight : bold;}
+	li.sous-ensemble li {font-weight : normal;}
+	h2>a:link{ color : white; }
+	h2>a:visited { color : gray; }
+	a:link{text-decoration : none;}
+	div.cours a:link{color : yellow;}
+	div.cours a:visited{color : yellow;}
+	div.cours a:hover{ position : relative;
+	     	top : -2px;
+	     	font-style : italic; }
+	div.cours li{list-style-type : none;}
+	li {list-style-type : none;}
+	img.pr {float:right;}
+	div.invisible{display : none;}
+	div.visible{display : block;}
+	a.S:visited{color : #FF7F00; }
+	a.S:link{color : #FF7F00;}
+	a:visited{color : #0000FF;} 
+	a.S:hover{font-weight : bold;}
+	#eb{float : right;}
+	#H{text-align : center;}
+	div.H{border : red 2px solid;
+		background-color: #C0C0C0;
+    border-radius: 10px 10px 10px 10px;
+    box-shadow: 1px 1px 30px #FF0000;
+		float : left;
+		background-color : black;}
+	#O{float : right;
+	   border : 1px solid red;
+	   text-align : left;}
+	div.F{clear : both;}
+	h5{}
+	
+
+
+	
+	
